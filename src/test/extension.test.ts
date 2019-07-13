@@ -75,34 +75,41 @@ function assertIn<T>(e: T, a: T[]) {
   }
 }
 
-function defaultMatchesTransitive(path1: string, path2: string) {
+function transitive(path1: string, path2: string) {
   assertIn(path2, allMatches(path1));
   assertIn(path1, allMatches(path2));
 }
 
 suite("default rules", () => {
   test("Ruby on Rails", () => {
-    defaultMatchesTransitive(
+    transitive(
       "/home/brian/sample_app_rails_4/app/models/micropost.rb",
       "/home/brian/sample_app_rails_4/spec/models/micropost_spec.rb",
     );
-    defaultMatchesTransitive(
+    transitive(
       "/home/brian/sample_app_rails_4/app/controllers/relationships_controller.rb",
       "/home/brian/sample_app_rails_4/spec/controllers/relationships_controller_spec.rb",
     );
   });
 
-  test("JavaScript / TypeScript", () => {
-    defaultMatchesTransitive(
+  test("Mocha", () => {
+    transitive(
       "/home/brian/test-switcher/src/extension.ts",
       "/home/brian/test-switcher/src/test/extension.test.ts",
     );
   });
 
   test("Go", () => {
-    defaultMatchesTransitive(
+    transitive(
       "/home/brian/kubernetes/pkg/kubectl/cmd/cmd.go",
       "/home/brian/kubernetes/pkg/kubectl/cmd/cmd_test.go",
+    );
+  });
+
+  test("Jest", () => {
+    transitive(
+      "src/components/foo/bar.tsx",
+      "src/components/foo/__tests__/bar.test.tsx",
     );
   });
 });
