@@ -53,16 +53,16 @@
   },
   "devDependencies": {
     "@types/glob": "^7.1.1",
-    "@types/mocha": "^2.2.42",
+    "@types/mocha": "5.2.6",
     "@types/node": "^8.10.25",
     "@types/vscode": "^1.36.0",
     "glob": "^7.1.4",
     "husky": "^3.0.0",
-    "mocha": "^6.1.4",
+    "mocha": "6.1.4",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
-    "tslint": "^5.8.0",
-    "typescript": "^3.1.4",
+    "tslint": "5.12.1",
+    "typescript": "3.3.1",
     "vscode-test": "1.0.0-next.0"
   },
   "husky": {
