@@ -19,6 +19,14 @@
         "command": "test-switcher.switch",
         "title": "Test Switcher: Switch"
       }
+    ],
+    "keybindings": [
+      {
+        "command": "test-switcher.switch",
+        "key": "ctrl+shift+y",
+        "mac": "cmd+shift+y",
+        "when": "editorTextFocus"
+      }
     ]
   },
   "scripts": {
