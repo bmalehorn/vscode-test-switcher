@@ -50,6 +50,10 @@ suite("match", () => {
       "/home/brian/sample_app_rails_4/spec/models/micropost_spec.rb",
     );
   });
+
+  test("match bad regex", () => {
+    assert.equal(match("(", { pattern: "(", replacement: "b.txt" }), undefined);
+  });
 });
 
 function allMatches(path: string): string[] {

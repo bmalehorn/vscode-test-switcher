@@ -1,7 +1,7 @@
 {
   "name": "test-switcher",
   "displayName": "Test Switcher",
-  "description": "Switch from a file to its unit test, in any language",
+  "description": "Switch from a file to its unit test, for any language",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.36.0"
@@ -14,6 +14,16 @@
   ],
   "main": "./out/extension",
   "contributes": {
+    "configuration": {
+      "title": "Test Switcher",
+      "properties": {
+        "test-switcher.rules": {
+          "type": "array",
+          "description": "Object containing {pattern, replacement} - see extension description",
+          "default": []
+        }
+      }
+    },
     "commands": [
       {
         "command": "test-switcher.switch",

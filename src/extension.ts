@@ -17,17 +17,32 @@ export const DEFAULT_RULES: Rule[] = [
   // { pattern: "([^/]+)\\.tsx", replacement: "__tests__/$1.test.tsx" },
 ];
 
-const rules = DEFAULT_RULES;
+let rules = DEFAULT_RULES;
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerCommand("test-switcher.switch", doSwitch),
   );
+  context.subscriptions.push(
+    vscode.workspace.onDidChangeConfiguration(updateFromConfig),
+  );
+  updateFromConfig();
+}
+
+function updateFromConfig() {
+  const configuration = vscode.workspace.getConfiguration("test-switcher");
+  const extraRules: Rule[] = configuration.get("rules") || [];
+  rules = [...DEFAULT_RULES, ...extraRules];
 }
 
 export function match(path: string, rule: Rule): string | undefined {
   const { pattern, replacement } = rule;
-  const regex = new RegExp(pattern);
+  let regex: RegExp;
+  try {
+    regex = new RegExp(pattern);
+  } catch {
+    return;
+  }
   if (!path.match(regex)) {
     return;
   }
