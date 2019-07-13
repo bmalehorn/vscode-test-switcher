@@ -36,4 +36,4 @@ Effectively, this extension runs `path.replace(new RegExp(pattern), replacement)
 
 ### 1.0.0
 
-one day...
+Initial release.
