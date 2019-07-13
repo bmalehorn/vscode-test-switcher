@@ -19,7 +19,7 @@
       "properties": {
         "test-switcher.rules": {
           "type": "array",
-          "description": "Object containing {pattern, replacement} - see extension description",
+          "description": "Additional {pattern, replacement} rules - see extension description",
           "default": []
         }
       }

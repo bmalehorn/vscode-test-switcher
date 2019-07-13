@@ -8,12 +8,15 @@ export interface Rule {
 }
 
 export const DEFAULT_RULES: Rule[] = [
-  // rails
+  // Ruby on Rails
   { pattern: "app/([^/]+)/([^/]+)\\.rb", replacement: "spec/$1/$2_spec.rb" },
   { pattern: "spec/([^/]+)/([^/]+)_spec\\.rb", replacement: "app/$1/$2.rb" },
-  // vscode / js
+  // JavaScript / TypeScript
   { pattern: "([^/]+)\\.([jt]sx?)", replacement: "test/$1.test.$2" },
   { pattern: "test/([^/]+)\\.test\\.([jt]sx?)", replacement: "$1.$2" },
+  // Go
+  { pattern: "([^/]+)\\.go", replacement: "$1_test.go" },
+  { pattern: "([^/]+)_test\\.go", replacement: "$1.go" },
   // { pattern: "([^/]+)\\.tsx", replacement: "__tests__/$1.test.tsx" },
 ];
 
@@ -32,7 +35,7 @@ export function activate(context: vscode.ExtensionContext) {
 function updateFromConfig() {
   const configuration = vscode.workspace.getConfiguration("test-switcher");
   const extraRules: Rule[] = configuration.get("rules") || [];
-  rules = [...DEFAULT_RULES, ...extraRules];
+  rules = [...extraRules, ...DEFAULT_RULES];
 }
 
 export function match(path: string, rule: Rule): string | undefined {

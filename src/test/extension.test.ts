@@ -81,23 +81,28 @@ function defaultMatchesTransitive(path1: string, path2: string) {
 }
 
 suite("default rules", () => {
-  test("model & spec", () => {
+  test("Ruby on Rails", () => {
     defaultMatchesTransitive(
       "/home/brian/sample_app_rails_4/app/models/micropost.rb",
       "/home/brian/sample_app_rails_4/spec/models/micropost_spec.rb",
     );
-  });
-  test("controller & spec", () => {
     defaultMatchesTransitive(
       "/home/brian/sample_app_rails_4/app/controllers/relationships_controller.rb",
       "/home/brian/sample_app_rails_4/spec/controllers/relationships_controller_spec.rb",
     );
   });
 
-  test("vscode extensions", () => {
+  test("JavaScript / TypeScript", () => {
     defaultMatchesTransitive(
       "/home/brian/test-switcher/src/extension.ts",
       "/home/brian/test-switcher/src/test/extension.test.ts",
+    );
+  });
+
+  test("Go", () => {
+    defaultMatchesTransitive(
+      "/home/brian/kubernetes/pkg/kubectl/cmd/cmd.go",
+      "/home/brian/kubernetes/pkg/kubectl/cmd/cmd_test.go",
     );
   });
 });
