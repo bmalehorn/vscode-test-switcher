@@ -1,8 +1,8 @@
 {
   "name": "test-switcher",
   "displayName": "Test Switcher",
-  "description": "Toggle between editing a file and its unit test, in any framework",
-  "version": "1.1.0",
+  "description": "Toggle between editing a file and its unit test",
+  "version": "1.1.1",
   "publisher": "bmalehorn",
   "engines": {
     "vscode": "^1.36.0"

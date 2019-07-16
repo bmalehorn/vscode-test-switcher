@@ -1,5 +1,8 @@
 # Test Switcher: There and Back Again
 
+[![version number](https://vsmarketplacebadge.apphb.com/version-short/bmalehorn.test-switcher.svg)](https://marketplace.visualstudio.com/items?itemName=bmalehorn.test-switcher)
+[![download count](https://vsmarketplacebadge.apphb.com/downloads-short/bmalehorn.test-switcher.svg)](https://marketplace.visualstudio.com/items?itemName=bmalehorn.test-switcher)
+
 `Shift+Cmd+Y` / `Shift+Ctrl+Y`: Toggle between editing a file and its unit test.
 
 The following formats are supported by default:
@@ -41,3 +44,8 @@ Add support for `__tests__/*.test.js` directory.
 ### 1.0.0
 
 Initial release.
+
+## Similar Projects
+
+- [Rails Go to Spec](https://marketplace.visualstudio.com/items?itemName=sporto.rails-go-to-spec)
+- [File Switcher](https://marketplace.visualstudio.com/items?itemName=johnathanludwig.fileswitcher)
