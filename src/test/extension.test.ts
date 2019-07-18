@@ -112,4 +112,11 @@ suite("default rules", () => {
       "src/components/foo/__tests__/bar.test.tsx",
     );
   });
+
+  test("new VSCode", () => {
+    transitive(
+      "/home/brian/test/src/extension.ts",
+      "/home/brian/test/src/test/suite/extension.test.ts",
+    );
+  });
 });

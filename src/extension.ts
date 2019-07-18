@@ -9,8 +9,8 @@ export interface Rule {
 
 export const DEFAULT_RULES: Rule[] = [
   // Ruby on Rails
-  { pattern: "app/([^/]+)/([^/]+)\\.rb", replacement: "spec/$1/$2_spec.rb" },
-  { pattern: "spec/([^/]+)/([^/]+)_spec\\.rb", replacement: "app/$1/$2.rb" },
+  { pattern: "app/(.*)\\.rb", replacement: "spec/$1_spec.rb" },
+  { pattern: "spec/(.*)_spec\\.rb", replacement: "app/$1.rb" },
   // Mocha
   { pattern: "([^/]+)\\.([jt]sx?)", replacement: "test/$1.test.$2" },
   { pattern: "test/([^/]+)\\.test\\.([jt]sx?)", replacement: "$1.$2" },
@@ -21,6 +21,15 @@ export const DEFAULT_RULES: Rule[] = [
   { pattern: "([^/]+)\\.([jt]sx?)", replacement: "__tests__/$1.test.$2" },
   {
     pattern: "__tests__/([^/]+)\\.test\\.([jt]sx?)",
+    replacement: "$1.$2",
+  },
+  // new "yo code"
+  {
+    pattern: "([^/]+)\\.([tj]sx?)",
+    replacement: "test/suite/$1.test.$2",
+  },
+  {
+    pattern: "test/suite/([^/]+)\\.test\\.([tj]sx?)",
     replacement: "$1.$2",
   },
 ];
