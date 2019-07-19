@@ -123,4 +123,22 @@ suite("default rules", () => {
   test("foo.ts <=> test.foo.js", () => {
     transitive("src/worker.ts", "src/__tests__/worker.test.js");
   });
+
+  test("Python unittest", () => {
+    transitive("Lib/base64.py", "Lib/test/test_base64.py");
+  });
+
+  test("Python unittest depth 1", () => {
+    transitive(
+      "/home/brian/tmp/cpython/Lib/email/headerregistry.py",
+      "/home/brian/tmp/cpython/Lib/test/test_email/test_headerregistry.py",
+    );
+  });
+
+  test("Python unittest tests directory", () => {
+    transitive(
+      "/home/brian/tmp/cpython/Lib/lib2to3/pytree.py",
+      "/home/brian/tmp/cpython/Lib/lib2to3/tests/test_pytree.py",
+    );
+  });
 });

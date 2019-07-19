@@ -8,13 +8,24 @@ export interface Rule {
 }
 
 export const DEFAULT_RULES: Rule[] = [
+  ////////////////////////////////////////////////////////////
   // Ruby on Rails
+  ////////////////////////////////////////////////////////////
+
   { pattern: "app/(.*)\\.rb", replacement: "spec/$1_spec.rb" },
   { pattern: "spec/(.*)_spec\\.rb", replacement: "app/$1.rb" },
+
+  ////////////////////////////////////////////////////////////
   // Go
+  ////////////////////////////////////////////////////////////
+
   { pattern: "([^/]+)\\.go", replacement: "$1_test.go" },
   { pattern: "([^/]+)_test\\.go", replacement: "$1.go" },
-  // JavaScript bonanza
+
+  ////////////////////////////////////////////////////////////
+  // JavaScript
+  ////////////////////////////////////////////////////////////
+
   // *.js => test/*.test.js
   { pattern: "([^/]+)\\.([jt]sx?)", replacement: "test/$1.test.$2" },
   { pattern: "([^/]+)\\.([jt]sx?)", replacement: "__tests__/$1.test.$2" },
@@ -48,6 +59,39 @@ export const DEFAULT_RULES: Rule[] = [
   {
     pattern: "(test|__tests__|test/suite)/([^/]+)\\.test\\.([jt]sx?)",
     replacement: "$2.ts",
+  },
+
+  ////////////////////////////////////////////////////////////
+  // Python
+  ////////////////////////////////////////////////////////////
+
+  // Python unittest
+  // depth 0
+  {
+    pattern: "([^/]*)\\.py",
+    replacement: "test/test_$1.py",
+  },
+  {
+    pattern: "test/test_([^/]*)\\.py",
+    replacement: "$1.py",
+  },
+  // depth 1
+  {
+    pattern: "([^/]*)/([^/]*)\\.py",
+    replacement: "test/test_$1/test_$2.py",
+  },
+  {
+    pattern: "test/test_([^/]*)/test_([^/]*)\\.py",
+    replacement: "$1/$2.py",
+  },
+  // depth 0, "tests"
+  {
+    pattern: "([^/]*)\\.py",
+    replacement: "tests/test_$1.py",
+  },
+  {
+    pattern: "tests/test_([^/]*)\\.py",
+    replacement: "$1.py",
   },
 ];
 

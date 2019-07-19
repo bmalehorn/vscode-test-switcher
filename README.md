@@ -12,8 +12,9 @@ The following formats are supported by default:
 | JavaScript / TypeScript | `*.js` †         | `__tests__/*.test.js`  |
 | JavaScript / TypeScript | `*.js` †         | `test/*.test.js`       |
 | JavaScript / TypeScript | `*.js` †         | `test/suite/*.test.js` |
-| Ruby on Rails           | `app/*/*.rb`     | `spec/*/*_spec.rb`     |
+| Python                  | `*.py`           | `test/test_*.py`       |
 | Go                      | `*.go`           | `*_test.go`            |
+| Ruby on Rails           | `app/*/*.rb`     | `spec/*/*_spec.rb`     |
 
 † Also supports `.jsx`, `.ts`, `.tsx`
 
@@ -33,6 +34,10 @@ Here's what it would look like to add Ruby on Rails support:
 Effectively, this extension runs `path.replace(new RegExp(pattern), replacement)`. If the source file matches the regex the replaced filename exists, you'll switch to that file. Otherwise, it will try the next rule.
 
 ## Release Notes
+
+### 1.4.0
+
+- Python: added language, using `unittest` convention
 
 ### 1.3.0
 
