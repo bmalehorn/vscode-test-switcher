@@ -11,26 +11,43 @@ export const DEFAULT_RULES: Rule[] = [
   // Ruby on Rails
   { pattern: "app/(.*)\\.rb", replacement: "spec/$1_spec.rb" },
   { pattern: "spec/(.*)_spec\\.rb", replacement: "app/$1.rb" },
-  // Mocha
-  { pattern: "([^/]+)\\.([jt]sx?)", replacement: "test/$1.test.$2" },
-  { pattern: "test/([^/]+)\\.test\\.([jt]sx?)", replacement: "$1.$2" },
   // Go
   { pattern: "([^/]+)\\.go", replacement: "$1_test.go" },
   { pattern: "([^/]+)_test\\.go", replacement: "$1.go" },
-  // Jest
+  // JavaScript bonanza
+  // *.js => test/*.test.js
+  { pattern: "([^/]+)\\.([jt]sx?)", replacement: "test/$1.test.$2" },
   { pattern: "([^/]+)\\.([jt]sx?)", replacement: "__tests__/$1.test.$2" },
   {
-    pattern: "__tests__/([^/]+)\\.test\\.([jt]sx?)",
-    replacement: "$1.$2",
-  },
-  // new "yo code"
-  {
-    pattern: "([^/]+)\\.([tj]sx?)",
+    pattern: "([^/]+)\\.([jt]sx?)",
     replacement: "test/suite/$1.test.$2",
   },
+  // *.ts => test/*.test.js
+  { pattern: "([^/]+)\\.([jt]sx?)", replacement: "test/$1.test.js" },
+  { pattern: "([^/]+)\\.([jt]sx?)", replacement: "__tests__/$1.test.js" },
   {
-    pattern: "test/suite/([^/]+)\\.test\\.([tj]sx?)",
-    replacement: "$1.$2",
+    pattern: "([^/]+)\\.([jt]sx?)",
+    replacement: "test/suite/$1.test.js",
+  },
+  // *.js => test/*.test.ts
+  { pattern: "([^/]+)\\.([jt]sx?)", replacement: "test/$1.test.ts" },
+  { pattern: "([^/]+)\\.([jt]sx?)", replacement: "__tests__/$1.test.ts" },
+  {
+    pattern: "([^/]+)\\.([jt]sx?)",
+    replacement: "test/suite/$1.test.ts",
+  },
+  // test.ts => file.js
+  {
+    pattern: "(test|__tests__|test/suite)/([^/]+)\\.test\\.([jt]sx?)",
+    replacement: "$2.$3",
+  },
+  {
+    pattern: "(test|__tests__|test/suite)/([^/]+)\\.test\\.([jt]sx?)",
+    replacement: "$2.js",
+  },
+  {
+    pattern: "(test|__tests__|test/suite)/([^/]+)\\.test\\.([jt]sx?)",
+    replacement: "$2.ts",
   },
 ];
 

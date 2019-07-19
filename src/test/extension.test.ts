@@ -119,4 +119,8 @@ suite("default rules", () => {
       "/home/brian/test/src/test/suite/extension.test.ts",
     );
   });
+
+  test("foo.ts <=> test.foo.js", () => {
+    transitive("src/worker.ts", "src/__tests__/worker.test.js");
+  });
 });

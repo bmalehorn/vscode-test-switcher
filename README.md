@@ -7,13 +7,15 @@
 
 The following formats are supported by default:
 
-| framework     | application file | unit test file         |
-| ------------- | ---------------- | ---------------------- |
-| JavaScript    | `*.js`           | `test/*.test.js`       |
-| Ruby on Rails | `app/*/*.rb`     | `spec/*/*_spec.rb`     |
-| Go            | `*.go`           | `*_test.go`            |
-| JavaScript    | `*.js`           | `__tests__/*.test.js`  |
-| JavaScript    | `*.js`           | `test/suite/*.test.js` |
+| framework               | application file | unit test file         |
+| ----------------------- | ---------------- | ---------------------- |
+| JavaScript / TypeScript | `*.js` †         | `__tests__/*.test.js`  |
+| JavaScript / TypeScript | `*.js` †         | `test/*.test.js`       |
+| JavaScript / TypeScript | `*.js` †         | `test/suite/*.test.js` |
+| Ruby on Rails           | `app/*/*.rb`     | `spec/*/*_spec.rb`     |
+| Go                      | `*.go`           | `*_test.go`            |
+
+† Also supports `.jsx`, `.ts`, `.tsx`
 
 ## Extension Settings
 
@@ -31,6 +33,10 @@ Here's what it would look like to add Ruby on Rails support:
 Effectively, this extension runs `path.replace(new RegExp(pattern), replacement)`. If the source file matches the regex the replaced filename exists, you'll switch to that file. Otherwise, it will try the next rule.
 
 ## Release Notes
+
+### 1.3.0
+
+- JavaScript: support `.js` test on `.ts` file
 
 ### 1.2.0
 
