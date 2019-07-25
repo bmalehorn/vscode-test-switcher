@@ -141,4 +141,8 @@ suite("default rules", () => {
       "/home/brian/tmp/cpython/Lib/lib2to3/tests/test_pytree.py",
     );
   });
+
+  test("any file extension", () => {
+    transitive("cmd.foo", "cmd_test.foo");
+  });
 });

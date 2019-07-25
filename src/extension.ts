@@ -19,18 +19,18 @@ export const DEFAULT_RULES: Rule[] = [
   // Go
   ////////////////////////////////////////////////////////////
 
-  { pattern: "([^/]+)\\.go", replacement: "$1_test.go" },
-  { pattern: "([^/]+)_test\\.go", replacement: "$1.go" },
+  { pattern: "([^/]+)\\.([^/.]+)", replacement: "$1_test.$2" },
+  { pattern: "([^/]+)_test\\.([^/.]+)", replacement: "$1.$2" },
 
   ////////////////////////////////////////////////////////////
   // JavaScript
   ////////////////////////////////////////////////////////////
 
   // *.js => test/*.test.js
-  { pattern: "([^/]+)\\.([jt]sx?)", replacement: "test/$1.test.$2" },
-  { pattern: "([^/]+)\\.([jt]sx?)", replacement: "__tests__/$1.test.$2" },
+  { pattern: "([^/]+)\\.([^/.]+)", replacement: "test/$1.test.$2" },
+  { pattern: "([^/]+)\\.([^/.]+)", replacement: "__tests__/$1.test.$2" },
   {
-    pattern: "([^/]+)\\.([jt]sx?)",
+    pattern: "([^/]+)\\.([^/.]+)",
     replacement: "test/suite/$1.test.$2",
   },
   // *.ts => test/*.test.js
@@ -49,15 +49,15 @@ export const DEFAULT_RULES: Rule[] = [
   },
   // test.ts => file.js
   {
-    pattern: "(test|__tests__|test/suite)/([^/]+)\\.test\\.([jt]sx?)",
+    pattern: "(test|__tests__|test/suite)/([^/]+)\\.test\\.([^/.]+)",
     replacement: "$2.$3",
   },
   {
-    pattern: "(test|__tests__|test/suite)/([^/]+)\\.test\\.([jt]sx?)",
+    pattern: "(test|__tests__|test/suite)/([^/]+)\\.test\\.([^/.]+)",
     replacement: "$2.js",
   },
   {
-    pattern: "(test|__tests__|test/suite)/([^/]+)\\.test\\.([jt]sx?)",
+    pattern: "(test|__tests__|test/suite)/([^/]+)\\.test\\.([^/.]+)",
     replacement: "$2.ts",
   },
 
@@ -68,30 +68,30 @@ export const DEFAULT_RULES: Rule[] = [
   // Python unittest
   // depth 0
   {
-    pattern: "([^/]*)\\.py",
-    replacement: "test/test_$1.py",
+    pattern: "([^/]*)\\.([^/.]+)",
+    replacement: "test/test_$1.$2",
   },
   {
-    pattern: "test/test_([^/]*)\\.py",
-    replacement: "$1.py",
+    pattern: "test/test_([^/]*)\\.([^/.]+)",
+    replacement: "$1.$2",
   },
   // depth 1
   {
-    pattern: "([^/]*)/([^/]*)\\.py",
-    replacement: "test/test_$1/test_$2.py",
+    pattern: "([^/]*)/([^/]*)\\.([^/.]+)",
+    replacement: "test/test_$1/test_$2.$3",
   },
   {
-    pattern: "test/test_([^/]*)/test_([^/]*)\\.py",
-    replacement: "$1/$2.py",
+    pattern: "test/test_([^/]*)/test_([^/]*)\\.([^/.]+)",
+    replacement: "$1/$2.$3",
   },
   // depth 0, "tests"
   {
-    pattern: "([^/]*)\\.py",
-    replacement: "tests/test_$1.py",
+    pattern: "([^/]*)\\.([^/.]+)",
+    replacement: "tests/test_$1.$2",
   },
   {
-    pattern: "tests/test_([^/]*)\\.py",
-    replacement: "$1.py",
+    pattern: "tests/test_([^/]*)\\.([^/.]+)",
+    replacement: "$1.$2",
   },
 ];
 

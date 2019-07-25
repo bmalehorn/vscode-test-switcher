@@ -38,6 +38,7 @@ Effectively, this extension runs `path.replace(new RegExp(pattern), replacement)
 ### 1.4.0
 
 - Python: added language, using `unittest` convention
+- all languages: updated rules to work on all extensions, e.g. `file.x` <=> `file_test.x`
 
 ### 1.3.0
 
