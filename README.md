@@ -35,6 +35,10 @@ Effectively, this extension runs `path.replace(new RegExp(pattern), replacement)
 
 ## Release Notes
 
+### 2.0.0
+
+- Go: fix a bug breaking directories containing `.`
+
 ### 1.4.0
 
 - Python: added language, using `unittest` convention

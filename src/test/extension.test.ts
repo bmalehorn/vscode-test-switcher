@@ -145,4 +145,8 @@ suite("default rules", () => {
   test("any file extension", () => {
     transitive("cmd.foo", "cmd_test.foo");
   });
+
+  test("directories with '.' in them", () => {
+    transitive("/example.com/file.tsx", "/example.com/__tests__/file.test.tsx");
+  });
 });
