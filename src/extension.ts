@@ -9,11 +9,29 @@ export interface Rule {
 
 export const DEFAULT_RULES: Rule[] = [
   ////////////////////////////////////////////////////////////
-  // Ruby on Rails
+  // Ruby
   ////////////////////////////////////////////////////////////
 
+  // rspec
   { pattern: "app/(.*)\\.rb$", replacement: "spec/$1_spec.rb" },
   { pattern: "spec/(.*)_spec\\.rb$", replacement: "app/$1.rb" },
+  // minitest
+  {
+    pattern: "app/controllers/(.*)\\.rb$",
+    replacement: "test/integration/$1.rb",
+  },
+  {
+    pattern: "test/integration/(.*)\\.rb$",
+    replacement: "app/controllers/$1.rb",
+  },
+  {
+    pattern: "app/(.*)\\.rb$",
+    replacement: "test/unit/$1_test.rb",
+  },
+  {
+    pattern: "test/unit/(.*)_test\\.rb$",
+    replacement: "app/$1.rb",
+  },
 
   ////////////////////////////////////////////////////////////
   // Go

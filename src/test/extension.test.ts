@@ -149,4 +149,15 @@ suite("default rules", () => {
   test("directories with '.' in them", () => {
     transitive("/example.com/file.tsx", "/example.com/__tests__/file.test.tsx");
   });
+
+  test("minitest 1", () => {
+    transitive(
+      "app/controllers/a/file_controller.rb",
+      "test/integration/a/file_controller.rb",
+    );
+  });
+
+  test("minitest 2", () => {
+    transitive("app/lib/dir/file_api.rb", "test/unit/lib/dir/file_api_test.rb");
+  });
 });

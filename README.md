@@ -7,14 +7,16 @@
 
 The following formats are supported by default:
 
-| framework               | application file | unit test file         |
-| ----------------------- | ---------------- | ---------------------- |
-| JavaScript / TypeScript | `*.js` †         | `__tests__/*.test.js`  |
-| JavaScript / TypeScript | `*.js` †         | `test/*.test.js`       |
-| JavaScript / TypeScript | `*.js` †         | `test/suite/*.test.js` |
-| Python                  | `*.py`           | `test/test_*.py`       |
-| Go                      | `*.go`           | `*_test.go`            |
-| Ruby on Rails           | `app/*/*.rb`     | `spec/*/*_spec.rb`     |
+| framework               | application file       | unit test file          |
+| ----------------------- | ---------------------- | ----------------------- |
+| JavaScript / TypeScript | `*.js` †               | `__tests__/*.test.js`   |
+| JavaScript / TypeScript | `*.js` †               | `test/*.test.js`        |
+| JavaScript / TypeScript | `*.js` †               | `test/suite/*.test.js`  |
+| Python                  | `*.py`                 | `test/test_*.py`        |
+| Go                      | `*.go`                 | `*_test.go`             |
+| Ruby on Rails           | `app/*/*.rb`           | `spec/*/*_spec.rb`      |
+| Ruby minitest           | `app/*.rb`             | `test/unit/*_test.rb`   |
+| Ruby minitest           | `app/controllers/*.rb` | `test/integration/*.rb` |
 
 † Also supports `.jsx`, `.ts`, `.tsx`
 
@@ -34,6 +36,10 @@ Here's what it would look like to add Ruby on Rails support:
 Effectively, this extension runs `path.replace(new RegExp(pattern), replacement)`. If the source file matches the regex the replaced filename exists, you'll switch to that file. Otherwise, it will try the next rule.
 
 ## Release Notes
+
+### 2.1.0
+
+- Ruby: Added support for minitest
 
 ### 2.0.0
 
