@@ -80,29 +80,51 @@ function transitive(path1: string, path2: string) {
   assertIn(path1, allMatches(path2));
 }
 
-suite("default rules", () => {
-  test("Ruby on Rails", () => {
+suite("Ruby", () => {
+  test("app/models", () => {
     transitive(
       "/home/brian/sample_app_rails_4/app/models/micropost.rb",
       "/home/brian/sample_app_rails_4/spec/models/micropost_spec.rb",
     );
+  });
+
+  test("app/controllers", () => {
     transitive(
       "/home/brian/sample_app_rails_4/app/controllers/relationships_controller.rb",
       "/home/brian/sample_app_rails_4/spec/controllers/relationships_controller_spec.rb",
     );
   });
 
+  test("minitest 1", () => {
+    transitive(
+      "app/controllers/a/file_controller.rb",
+      "test/integration/a/file_controller.rb",
+    );
+  });
+
+  test("minitest 2", () => {
+    transitive("app/lib/dir/file_api.rb", "test/unit/lib/dir/file_api_test.rb");
+  });
+
+  test("lib/", () => {
+    transitive("lib/file.rb", "spec/lib/file_spec.rb");
+  });
+});
+
+suite("Go", () => {
+  test("_test.go", () => {
+    transitive(
+      "/home/brian/kubernetes/pkg/kubectl/cmd/cmd.go",
+      "/home/brian/kubernetes/pkg/kubectl/cmd/cmd_test.go",
+    );
+  });
+});
+
+suite("JavaScript / TypeScript", () => {
   test("Mocha", () => {
     transitive(
       "/home/brian/test-switcher/src/extension.ts",
       "/home/brian/test-switcher/src/test/extension.test.ts",
-    );
-  });
-
-  test("Go", () => {
-    transitive(
-      "/home/brian/kubernetes/pkg/kubectl/cmd/cmd.go",
-      "/home/brian/kubernetes/pkg/kubectl/cmd/cmd_test.go",
     );
   });
 
@@ -123,41 +145,34 @@ suite("default rules", () => {
   test("foo.ts <=> test.foo.js", () => {
     transitive("src/worker.ts", "src/__tests__/worker.test.js");
   });
+});
 
-  test("Python unittest", () => {
+suite("Python", () => {
+  test("unittest", () => {
     transitive("Lib/base64.py", "Lib/test/test_base64.py");
   });
 
-  test("Python unittest depth 1", () => {
+  test("unittest depth 1", () => {
     transitive(
       "/home/brian/tmp/cpython/Lib/email/headerregistry.py",
       "/home/brian/tmp/cpython/Lib/test/test_email/test_headerregistry.py",
     );
   });
 
-  test("Python unittest tests directory", () => {
+  test("unittest tests directory", () => {
     transitive(
       "/home/brian/tmp/cpython/Lib/lib2to3/pytree.py",
       "/home/brian/tmp/cpython/Lib/lib2to3/tests/test_pytree.py",
     );
   });
+});
 
+suite("misc", () => {
   test("any file extension", () => {
     transitive("cmd.foo", "cmd_test.foo");
   });
 
   test("directories with '.' in them", () => {
     transitive("/example.com/file.tsx", "/example.com/__tests__/file.test.tsx");
-  });
-
-  test("minitest 1", () => {
-    transitive(
-      "app/controllers/a/file_controller.rb",
-      "test/integration/a/file_controller.rb",
-    );
-  });
-
-  test("minitest 2", () => {
-    transitive("app/lib/dir/file_api.rb", "test/unit/lib/dir/file_api_test.rb");
   });
 });

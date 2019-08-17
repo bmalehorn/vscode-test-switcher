@@ -43,6 +43,10 @@ Effectively, this extension runs `path.replace(new RegExp(pattern), replacement)
 
 ## Release Notes
 
+### 2.2.0
+
+- Ruby: Added lib/ support
+
 ### 2.1.1
 
 - added demo to README.md

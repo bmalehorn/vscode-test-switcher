@@ -32,6 +32,15 @@ export const DEFAULT_RULES: Rule[] = [
     pattern: "test/unit/(.*)_test\\.rb$",
     replacement: "app/$1.rb",
   },
+  // lib/
+  {
+    pattern: "lib/(.*)\\.rb$",
+    replacement: "spec/lib/$1_spec.rb",
+  },
+  {
+    pattern: "spec/lib/(.*)_spec\\.rb$",
+    replacement: "lib/$1.rb",
+  },
 
   ////////////////////////////////////////////////////////////
   // Go
@@ -41,7 +50,7 @@ export const DEFAULT_RULES: Rule[] = [
   { pattern: "([^/]+)_test\\.([^/.]+)$", replacement: "$1.$2" },
 
   ////////////////////////////////////////////////////////////
-  // JavaScript
+  // JavaScript / TypeScript
   ////////////////////////////////////////////////////////////
 
   // *.js => test/*.test.js
