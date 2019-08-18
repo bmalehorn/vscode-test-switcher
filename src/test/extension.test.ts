@@ -145,6 +145,10 @@ suite("JavaScript / TypeScript", () => {
   test("foo.ts <=> test.foo.js", () => {
     transitive("src/worker.ts", "src/__tests__/worker.test.js");
   });
+
+  test("xterm.js", () => {
+    transitive("xterm.js/src/Terminal.ts", "xterm.js/src/Terminal.test.ts");
+  });
 });
 
 suite("Python", () => {

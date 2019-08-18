@@ -18,6 +18,7 @@ The following formats are supported:
 | JavaScript / TypeScript | `*.js` †               | `__tests__/*.test.js`   |
 | JavaScript / TypeScript | `*.js` †               | `test/*.test.js`        |
 | JavaScript / TypeScript | `*.js` †               | `test/suite/*.test.js`  |
+| JavaScript / TypeScript | `*.js` †               | `*.test.js`             |
 | Python                  | `*.py`                 | `test/test_*.py`        |
 | Go                      | `*.go`                 | `*_test.go`             |
 | Ruby on Rails           | `app/*/*.rb`           | `spec/*/*_spec.rb`      |
@@ -42,6 +43,10 @@ Here's what it would look like to add Ruby on Rails support:
 Effectively, this extension runs `path.replace(new RegExp(pattern), replacement)`. If the source file matches the regex the replaced filename exists, you'll switch to that file. Otherwise, it will try the next rule.
 
 ## Release Notes
+
+### 2.3.0
+
+- JavaScript / TypeScript: Added support for `*.test.js` in the same directory
 
 ### 2.2.0
 

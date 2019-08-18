@@ -53,28 +53,28 @@ export const DEFAULT_RULES: Rule[] = [
   // JavaScript / TypeScript
   ////////////////////////////////////////////////////////////
 
-  // *.js => test/*.test.js
+  // 1: *.js => test/*.test.js
   { pattern: "([^/]+)\\.([^/.]+)$", replacement: "test/$1.test.$2" },
   { pattern: "([^/]+)\\.([^/.]+)$", replacement: "__tests__/$1.test.$2" },
   {
     pattern: "([^/]+)\\.([^/.]+)",
     replacement: "test/suite/$1.test.$2",
   },
-  // *.ts => test/*.test.js
+  // 2: *.ts => test/*.test.js
   { pattern: "([^/]+)\\.([jt]sx?)$", replacement: "test/$1.test.js" },
   { pattern: "([^/]+)\\.([jt]sx?)$", replacement: "__tests__/$1.test.js" },
   {
     pattern: "([^/]+)\\.([jt]sx?)",
     replacement: "test/suite/$1.test.js",
   },
-  // *.js => test/*.test.ts
+  // 3: *.js => test/*.test.ts
   { pattern: "([^/]+)\\.([jt]sx?)$", replacement: "test/$1.test.ts" },
   { pattern: "([^/]+)\\.([jt]sx?)$", replacement: "__tests__/$1.test.ts" },
   {
     pattern: "([^/]+)\\.([jt]sx?)$",
     replacement: "test/suite/$1.test.ts",
   },
-  // test.ts => file.js
+  // 1 + 2 + 3
   {
     pattern: "(test|__tests__|test/suite)/([^/]+)\\.test\\.([^/.]+)$",
     replacement: "$2.$3",
@@ -87,6 +87,10 @@ export const DEFAULT_RULES: Rule[] = [
     pattern: "(test|__tests__|test/suite)/([^/]+)\\.test\\.([^/.]+)$",
     replacement: "$2.ts",
   },
+
+  // file.ts => file.test.ts
+  { pattern: "/([^/]+)\\.([^/.]+)$", replacement: "/$1.test.$2" },
+  { pattern: "/([^/]+)\\.test\\.([^/.]+)$", replacement: "/$1.$2" },
 
   ////////////////////////////////////////////////////////////
   // Python
