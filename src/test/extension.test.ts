@@ -135,6 +135,14 @@ suite("JavaScript / TypeScript", () => {
     );
   });
 
+  test("Jest file tsx <=> test ts", () => {
+    transitive("src/__tests__/file.test.ts", "src/file.tsx");
+  });
+
+  test("Jest file ts <=> test tsx", () => {
+    transitive("src/__tests__/file.test.tsx", "src/file.ts");
+  });
+
   test("new VSCode", () => {
     transitive(
       "/home/brian/test/src/extension.ts",

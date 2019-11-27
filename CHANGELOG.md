@@ -1,5 +1,9 @@
 # Change Log
 
+### 2.4.0
+
+- JavaScript / TypeScript: improved support for jsx <=> js mismatches
+
 ## 2.3.0
 
 - JavaScript / TypeScript: Added support for `*.test.js` in the same directory
