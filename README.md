@@ -21,7 +21,8 @@ The following formats are supported:
 | JavaScript / TypeScript | `*.js` †               | `*.test.js`             |
 | Python                  | `*.py`                 | `test/test_*.py`        |
 | Go                      | `*.go`                 | `*_test.go`             |
-| Ruby on Rails           | `app/*/*.rb`           | `spec/*/*_spec.rb`      |
+| Ruby on Rails 1-5       | `app/*/*.rb`           | `spec/*/*_spec.rb`      |
+| Ruby on Rails 6+        | `app/*/*.rb`           | `test/*/*_test.rb`      |
 | Ruby minitest           | `app/*.rb`             | `test/unit/*_test.rb`   |
 | Ruby minitest           | `app/controllers/*.rb` | `test/integration/*.rb` |
 

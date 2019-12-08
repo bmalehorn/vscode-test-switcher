@@ -109,6 +109,10 @@ suite("Ruby", () => {
   test("lib/", () => {
     transitive("lib/file.rb", "spec/lib/file_spec.rb");
   });
+
+  test("rails 6+", () => {
+    transitive("app/models/article.rb", "test/models/article_test.rb");
+  });
 });
 
 suite("Go", () => {

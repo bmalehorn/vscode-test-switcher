@@ -1,8 +1,12 @@
 # Change Log
 
+### 2.5.0
+
+- Ruby: Added support for Rails 6
+
 ### 2.4.0
 
-- JavaScript / TypeScript: improved support for jsx <=> js mismatches
+- JavaScript / TypeScript: Improved support for jsx <=> js mismatches
 
 ## 2.3.0
 

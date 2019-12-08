@@ -2,7 +2,7 @@
   "name": "test-switcher",
   "displayName": "Test Switcher",
   "description": "Toggle between editing a file and its unit test",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "publisher": "bmalehorn",
   "engines": {
     "vscode": "^1.36.0"

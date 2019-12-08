@@ -15,6 +15,9 @@ export const DEFAULT_RULES: Rule[] = [
   // rspec
   { pattern: "app/(.*)\\.rb$", replacement: "spec/$1_spec.rb" },
   { pattern: "spec/(.*)_spec\\.rb$", replacement: "app/$1.rb" },
+  // rails 6+
+  { pattern: "app/(.*)/([^/]*).rb", replacement: "test/$1/$2_test.rb" },
+  { pattern: "test/(.*)/([^/]*)_test.rb", replacement: "app/$1/$2.rb" },
   // minitest
   {
     pattern: "app/controllers/(.*)\\.rb$",
