@@ -160,6 +160,24 @@ export const DEFAULT_RULES: Rule[] = [
     pattern: "tests/test_([^/]*)\\.([^/.]+)$",
     replacement: "$1.$2",
   },
+  //  parallel test directory, depth 0
+  {
+    pattern: "src/([^/]*)$",
+    replacement: "test/test_$1",
+  },
+  {
+    pattern: "test/test_([^/]*)$",
+    replacement: "src/$1",
+  },
+  //  parallel test directory, depth 1+
+  {
+    pattern: "src/(([^/]*)/)*([^/]*)$",
+    replacement: "test/$1test_$3",
+  },
+  {
+    pattern: "test/(([^/]*)/)test_*([^/]*)$",
+    replacement: "src/$1$3",
+  },
 ];
 
 let rules = DEFAULT_RULES;

@@ -1,5 +1,9 @@
 # Change Log
 
+### 2.6.0
+
+- Python: Support `src/*/*.py` <=> `test/*/test_*.py`
+
 ### 2.5.0
 
 - Ruby: Added support for Rails 6

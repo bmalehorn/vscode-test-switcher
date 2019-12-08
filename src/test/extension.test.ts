@@ -4,7 +4,6 @@ import { before } from "mocha";
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
 import * as vscode from "vscode";
-// import * as vscode from 'vscode';
 import { Rule, match, DEFAULT_RULES } from "../extension";
 
 // Defines a Mocha test suite to group tests of similar kind together
@@ -180,6 +179,14 @@ suite("Python", () => {
       "/home/brian/tmp/cpython/Lib/lib2to3/pytree.py",
       "/home/brian/tmp/cpython/Lib/lib2to3/tests/test_pytree.py",
     );
+  });
+
+  test("parallel test directory depth 0", () => {
+    transitive("src/foo.py", "test/test_foo.py");
+  });
+
+  test("parallel test directory depth 1", () => {
+    transitive("src/bar/foo.py", "test/bar/test_foo.py");
   });
 });
 

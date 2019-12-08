@@ -20,6 +20,7 @@ The following formats are supported:
 | JavaScript / TypeScript | `*.js` †               | `test/suite/*.test.js`  |
 | JavaScript / TypeScript | `*.js` †               | `*.test.js`             |
 | Python                  | `*.py`                 | `test/test_*.py`        |
+| Python                  | `src/*/*.py`           | `test/*/test_*.py`      |
 | Go                      | `*.go`                 | `*_test.go`             |
 | Ruby on Rails 1-5       | `app/*/*.rb`           | `spec/*/*_spec.rb`      |
 | Ruby on Rails 6+        | `app/*/*.rb`           | `test/*/*_test.rb`      |
