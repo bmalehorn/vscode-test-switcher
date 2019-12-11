@@ -1,7 +1,7 @@
 # Test Switcher
 
 [![version number](https://vsmarketplacebadge.apphb.com/version-short/bmalehorn.test-switcher.svg)](https://marketplace.visualstudio.com/items?itemName=bmalehorn.test-switcher)
-[![download count](https://vsmarketplacebadge.apphb.com/downloads-short/bmalehorn.test-switcher.svg)](https://marketplace.visualstudio.com/items?itemName=bmalehorn.test-switcher)
+[![install count](https://vsmarketplacebadge.apphb.com/installs-short/bmalehorn.test-switcher.svg)](https://marketplace.visualstudio.com/items?itemName=bmalehorn.test-switcher)
 
 Switch between a file and its unit test:
 
