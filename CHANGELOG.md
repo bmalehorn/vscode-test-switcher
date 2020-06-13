@@ -1,5 +1,9 @@
 # Change Log
 
+### 2.6.1
+
+- Updated icon
+
 ### 2.6.0
 
 - Python: Support `src/*/*.py` <=> `test/*/test_*.py`
