@@ -1,5 +1,10 @@
 # Change Log
 
+### 2.6.2
+
+- Update badge URLs
+- Remove deprecated suggestions from extensions.json
+
 ### 2.6.1
 
 - Updated icon
