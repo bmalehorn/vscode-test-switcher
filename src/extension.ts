@@ -128,6 +128,16 @@ export const DEFAULT_RULES: Rule[] = [
     replacement: "$2.tsx",
   },
 
+  // *.* => *.stories.*
+  {
+    pattern: "/(.*)\\.([^.]+)$",
+    replacement: "/$1.stories.$2",
+  },
+  {
+    pattern: "/(.*)\\.stories\\.([^.]+)$",
+    replacement: "/$1.$2",
+  },
+
   ////////////////////////////////////////////////////////////
   // Python
   ////////////////////////////////////////////////////////////
@@ -177,6 +187,27 @@ export const DEFAULT_RULES: Rule[] = [
   {
     pattern: "test/(([^/]*)/)test_*([^/]*)$",
     replacement: "src/$1$3",
+  },
+
+  ////////////////////////////////////////////////////////////
+  // Generic
+  ////////////////////////////////////////////////////////////
+  // *.* <-> *.test.*
+  {
+    pattern: "([^/]*)\\.([^/.]*)$",
+    replacement: "$1.test.$2",
+  },
+  {
+    pattern: "([^/]*)\\.test\\.([^/.]*)$",
+    replacement: "$1.$2",
+  },
+  {
+    pattern: "src/([^/]*)\\.([^/.]*)$",
+    replacement: "test/$1.test.$2",
+  },
+  {
+    pattern: "test/([^/]*)\\.test\\.([^/.]*)$",
+    replacement: "src/$1.$2",
   },
 ];
 

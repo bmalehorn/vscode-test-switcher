@@ -1,5 +1,7 @@
 # Change Log
 
+See https://github.com/bmalehorn/vscode-test-switcher/commits/master/ for changes after 2.6.2.
+
 ### 2.6.2
 
 - Update badge URLs

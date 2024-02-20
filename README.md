@@ -15,10 +15,11 @@ The following formats are supported:
 
 | framework               | application file       | unit test file          |
 | ----------------------- | ---------------------- | ----------------------- |
-| JavaScript / TypeScript | `*.js` †               | `__tests__/*.test.js`   |
-| JavaScript / TypeScript | `*.js` †               | `test/*.test.js`        |
-| JavaScript / TypeScript | `*.js` †               | `test/suite/*.test.js`  |
-| JavaScript / TypeScript | `*.js` †               | `*.test.js`             |
+| all                     | `*.*`                  | `*.test.*`              |
+| JavaScript / TypeScript | `*.*`                  | `__tests__/*.test.*`    |
+| JavaScript / TypeScript | `*.*`                  | `test/*.test.*`         |
+| JavaScript / TypeScript | `*.*`                  | `test/suite/*.test.*`   |
+| JavaScript / TypeScript | `*.*`                  | `*.stories.*`           |
 | Python                  | `*.py`                 | `test/test_*.py`        |
 | Python                  | `src/*/*.py`           | `test/*/test_*.py`      |
 | Go                      | `*.go`                 | `*_test.go`             |
@@ -26,8 +27,6 @@ The following formats are supported:
 | Ruby on Rails 6+        | `app/*/*.rb`           | `test/*/*_test.rb`      |
 | Ruby minitest           | `app/*.rb`             | `test/unit/*_test.rb`   |
 | Ruby minitest           | `app/controllers/*.rb` | `test/integration/*.rb` |
-
-† Also supports `.jsx`, `.ts`, `.tsx`.
 
 ## Extension Settings
 

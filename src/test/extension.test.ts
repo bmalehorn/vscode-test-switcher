@@ -146,6 +146,13 @@ suite("JavaScript / TypeScript", () => {
     transitive("src/__tests__/file.test.tsx", "src/file.ts");
   });
 
+  test("Storybook", () => {
+    transitive(
+      "frontend/src/components/Button.tsx",
+      "frontend/src/components/Button.stories.tsx",
+    );
+  });
+
   test("new VSCode", () => {
     transitive(
       "/home/brian/test/src/extension.ts",
@@ -197,5 +204,16 @@ suite("misc", () => {
 
   test("directories with '.' in them", () => {
     transitive("/example.com/file.tsx", "/example.com/__tests__/file.test.tsx");
+  });
+
+  test("generic *.test.* in the same directory", () => {
+    transitive("foo.js", "foo.test.js");
+  });
+
+  test("generic *.test.py in the same directory", () => {
+    transitive(
+      "backend/python/services/fooservice/core_utils.py",
+      "backend/python/services/fooservice/core_utils_test.py",
+    );
   });
 });
